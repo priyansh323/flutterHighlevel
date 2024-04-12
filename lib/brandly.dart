@@ -150,6 +150,7 @@ class GeneratorPage extends StatelessWidget {
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
+                  key: Key('NextButton'),
                   onPressed: () {
                     appState.getNext();
                   },
@@ -222,7 +223,7 @@ class MyAccount extends StatelessWidget{
               text: TextSpan(
                 children: <TextSpan>[
                  TextSpan(
-                  text: 'Your saved Brand Name Total is : ${savedNamesCount}',
+                  text: 'Your saved Brand Name Total is : $savedNamesCount',
                   style: Theme.of(context).textTheme.displayLarge!,
                  ),
               ],
