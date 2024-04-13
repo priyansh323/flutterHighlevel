@@ -29,8 +29,8 @@ void main(){
       expect(find.text('Get Name For Your BRAND'),findsOneWidget);
 
       expect(find.byKey(Key('NextButton')),findsOneWidget);
-    },
+     },
     );
    },
-   );
+  );
 }

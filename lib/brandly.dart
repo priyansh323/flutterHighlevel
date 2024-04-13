@@ -1,7 +1,8 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:brandly/savedBrandNames.dart';
+import 'package:brandly/MyAccount.dart';
 
 void main() {
   runApp(MyApp());
@@ -130,7 +131,7 @@ class GeneratorPage extends StatelessWidget {
             RichText(
               text: TextSpan(
                 text : 'Get Name For Your ',
-                style: Theme.of(context).textTheme.displayLarge!,
+                style: Theme.of(context).textTheme.displayMedium!,
                 children: const <TextSpan>[
                  TextSpan(text: 'BRAND', style: TextStyle(fontWeight: FontWeight.bold)),
               ],
@@ -175,7 +176,7 @@ class BigCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var style = theme.textTheme.displayLarge!.copyWith(
+    var style = theme.textTheme.displayMedium!.copyWith(
       color: Color.fromARGB(234, 120, 123, 79),
     );
     return Padding(
@@ -183,54 +184,4 @@ class BigCard extends StatelessWidget {
       child: Text(brandName.asPascalCase, style:style),
     );
   }
-}
-
-class SavedNames extends StatelessWidget{
-   @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-
-    if(appState.save.isEmpty){
-      return Center(
-        child: Text('You Dont have any Brand Name ideas yet'),
-      );
-    }
-
-    return ListView(
-        children: [
-          Padding(padding: const EdgeInsets.all(20)),
-          Text('Your Saved Brand Names '),
-          for(var na in appState.save)
-           ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text(na.asLowerCase),
-           )
-      ],
-      );
-  }
-}
-
-class MyAccount extends StatelessWidget{
-   @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-    var savedNamesCount = (appState.save.length).toString();
-
-    return ListView(
-          children: [
-            Padding(padding: const EdgeInsets.all(20)),
-            RichText(
-              text: TextSpan(
-                children: <TextSpan>[
-                 TextSpan(
-                  text: 'Your saved Brand Name Total is : $savedNamesCount',
-                  style: Theme.of(context).textTheme.displayLarge!,
-                 ),
-              ],
-              ),
-              )
-          ],
-
-        );
-}
 }
