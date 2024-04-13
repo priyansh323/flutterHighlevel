@@ -3,6 +3,10 @@
 *.log
 *.pyc
 *.swp
+*.cache
+*.here
+*.cmake
+.linux
 .DS_Store
 .atom/
 .buildlog/

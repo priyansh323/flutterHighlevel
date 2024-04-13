@@ -143,6 +143,7 @@ class GeneratorPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 ElevatedButton.icon(
+                  key: Key('saveIcon'),
                   onPressed: () {
                     appState.saveBrand();
                   },

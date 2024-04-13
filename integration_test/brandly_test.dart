@@ -22,8 +22,8 @@ void main(){
       ];
 
       for(var ico in iconsHomePage){
-        await captain.tap(find.byKey(ValueKey(ico)));
-        await captain.pumpAndSettle(const Duration(seconds: 1));
+        await captain.tap(find.byKey(Key(ico)));
+        await captain.pumpAndSettle(const Duration(seconds: 2));
       }
 
       expect(find.text('Get Name For Your BRAND'),findsOneWidget);
